@@ -1,7 +1,7 @@
 const ProductRow = ({ product }) => (`
   <tr class="product ${product.stock === 0 ? 'no-stock' : ''}">
     <td>${product.name}</td>
-    <td class="price">${product.name}</td>
+    <td class="price">${product.price.toFixed(2)}</td>
     <td class="stock">${product.stock}</td>
     <td>
       <button title="inc stock">+</button>

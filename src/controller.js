@@ -6,7 +6,7 @@ export const productoIncStock = () => {
 
 };
 
-export const productoDeccStock = () => {
+export const productoDecStock = () => {
 
 };
 
