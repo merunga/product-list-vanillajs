@@ -1,9 +1,12 @@
 {
   "extends": "airbnb-base",
   "env": {
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "rules": {
-    "import/extensions": 0
-  }
+    "import/extensions": 0,
+    "import/prefer-default-export": 0
+  },
+  "plugins": ["jest"]
 }
