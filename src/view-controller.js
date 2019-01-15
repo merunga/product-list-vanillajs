@@ -2,7 +2,7 @@ import NewProductForm from './components/NewProductForm.js';
 import ProductList from './components/ProductList.js';
 import store from './store.js';
 
-export const renderComponents = () => {
+export const renderUI = () => {
   const { products } = store.get();
 
   const root = document.getElementById('root');
