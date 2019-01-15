@@ -1,3 +1,5 @@
 import { renderComponents } from './view-controller.js';
 
-renderComponents();
+window.addEventListener('load', () => {
+  renderComponents();
+})
