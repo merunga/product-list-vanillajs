@@ -14,12 +14,7 @@ const ProductRow = ({ product }) => (`
 export default ({ products }) => {
   const htmlContent = `
 <h3>Productos</h3>
-<div id="product-search-form">
-  <input type="text" placeholder="Buscar...">
-  <br />
-  <input type="checkbox"> Sólo productos en stock
-</div>
-<table id="product-list">
+<table>
   <thead>
     <tr>
       <th>Nombre</th>
@@ -34,7 +29,7 @@ export default ({ products }) => {
 </table>
   `;
   const divElem = document.createElement('div');
-  divElem.setAttribute('id', 'searchable-product-list');
+  divElem.setAttribute('id', 'product-list');
   divElem.innerHTML = htmlContent;
   return divElem;
 };

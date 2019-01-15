@@ -1,5 +1,5 @@
 import NewProductForm from './components/NewProductForm.js';
-import SearchableProductList from './components/SearchableProductList.js';
+import ProductList from './components/ProductList.js';
 import store from './store.js';
 
 export const renderComponents = () => {
@@ -7,7 +7,7 @@ export const renderComponents = () => {
 
   const root = document.getElementById('root');
   const form = NewProductForm();
-  const list = SearchableProductList({ products });
+  const list = ProductList({ products });
   root.appendChild(form);
   root.appendChild(list);
 };

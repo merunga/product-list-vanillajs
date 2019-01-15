@@ -12,7 +12,7 @@ h3 {
 }
 
 #new-product-form,
-#searchable-product-list {
+#product-list {
   padding: 5px;
   border: 1px dashed black;
   width: 100%;
@@ -43,11 +43,11 @@ h3 {
   width: 90%;
 }
 
-#product-list,
 #product-list td,
 #product-list th
  {
   border: 1px solid black;
+  padding: 2px;
 }
 
 #new-product-form {
