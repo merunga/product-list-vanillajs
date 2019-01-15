@@ -3,11 +3,12 @@ import ProductList from './components/ProductList.js';
 import store from './store.js';
 
 export const renderUI = () => {
-  const { products } = store.get();
+  const productos = store.get('productos');
 
   const root = document.getElementById('root');
+  root.innerHTML = '';
   const form = NewProductForm();
-  const list = ProductList({ products });
+  const list = ProductList({ productos });
   root.appendChild(form);
   root.appendChild(list);
 };

@@ -1,8 +1,8 @@
-const ProductRow = ({ product }) => (`
-  <tr class="product ${product.stock === 0 ? 'no-stock' : ''}">
-    <td>${product.name}</td>
-    <td class="price">${product.price.toFixed(2)}</td>
-    <td class="stock">${product.stock}</td>
+const ProductRow = ({ producto }) => (`
+  <tr data-id="${producto.id}" class="product ${producto.stock === 0 ? 'no-stock' : ''}">
+    <td>${producto.name}</td>
+    <td class="price">${producto.price.toFixed(2)}</td>
+    <td class="stock">${producto.stock}</td>
     <td>
       <button title="inc stock">+</button>
       <button title="dec stock">-</button>
@@ -11,7 +11,7 @@ const ProductRow = ({ product }) => (`
   </tr>
   `);
 
-export default ({ products }) => {
+export default ({ productos }) => {
   const htmlContent = `
 <h3>Productos</h3>
 <table>
@@ -24,7 +24,7 @@ export default ({ products }) => {
     </tr>
   </thead>
   <tbody>
-    ${products.map(product => ProductRow({ product })).join('')}
+    ${productos.map(producto => ProductRow({ producto })).join('')}
   </tbody>
 </table>
   `;
