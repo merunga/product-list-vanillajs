@@ -3,7 +3,6 @@ import {
   productoIncStock,
   productoDecStock,
   productoEliminar,
-  productoFiltrar,
 } from '../src/controller';
 
 jest.mock('../src/utils.js');
