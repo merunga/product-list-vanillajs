@@ -15,4 +15,4 @@ export default () => {
   formElem.setAttribute('id', 'new-product-form');
   formElem.innerHTML = htmlContent;
   return formElem;
-}
+};

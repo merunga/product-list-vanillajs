@@ -37,4 +37,4 @@ export default ({ products }) => {
   divElem.setAttribute('id', 'searchable-product-list');
   divElem.innerHTML = htmlContent;
   return divElem;
-}
+};

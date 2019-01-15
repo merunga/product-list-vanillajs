@@ -10,4 +10,4 @@ export const renderComponents = () => {
   const list = SearchableProductList({ products });
   root.appendChild(form);
   root.appendChild(list);
-}
+};
