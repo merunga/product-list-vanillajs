@@ -44,3 +44,13 @@ export const productoEliminar = ({ productos, productoId }) => {
   });
   return result;
 };
+
+export const productosFiltrar = ({ productos, filter }) => {
+  const searchText = filter.searchText || '';
+  const searchTextRegex = new RegExp(searchText, 'gmi');
+  return productos.filter((p) => {
+    const condStock = !filter.enStock || p.stock > 0;
+    const condNombre = searchTextRegex.test(p.nombre);
+    return condStock && condNombre;
+  });
+};

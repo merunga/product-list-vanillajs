@@ -3,29 +3,30 @@ import {
   productoIncStock,
   productoDecStock,
   productoEliminar,
+  productosFiltrar,
 } from '../src/controller';
 
 jest.mock('../src/utils.js');
 
 const productoA = {
   id: 'A',
-  name: 'Producto A',
+  nombre: 'Producto A',
   stock: 1,
-  price: 25,
+  precio: 25,
 };
 
 const productoB = {
   id: 'B',
-  name: 'Producto B',
+  nombre: 'Producto B',
   stock: 2,
-  price: 35,
+  precio: 35,
 };
 
 const productoC = {
   id: 'C',
-  name: 'Producto C',
+  nombre: 'Producto C',
   stock: 0,
-  price: 35,
+  precio: 35,
 };
 
 const productos = [
@@ -37,9 +38,9 @@ const productos = [
 describe('productoCrear', () => {
   it('Agrega extiende la lista de productos con un nuevo producto', () => {
     const productoNuevo = {
-      name: 'Producto D',
+      nombre: 'Producto D',
       stock: 1,
-      price: 5,
+      precio: 5,
     };
     const result = productoCrear({ productos, producto: productoNuevo });
     expect(result.length).toBe(4);
@@ -59,9 +60,9 @@ describe('productoIncStock', () => {
     expect(result.length).toBe(3);
     expect(result[0]).toEqual({
       id: 'A',
-      name: 'Producto A',
+      nombre: 'Producto A',
       stock: 2,
-      price: 25,
+      precio: 25,
     });
   });
 });
@@ -72,9 +73,9 @@ describe('productoDecStock', () => {
     expect(result.length).toBe(3);
     expect(result[0]).toEqual({
       id: 'A',
-      name: 'Producto A',
+      nombre: 'Producto A',
       stock: 0,
-      price: 25,
+      precio: 25,
     });
   });
   it('Si el stock es CERO no decrementa', () => {
@@ -98,5 +99,33 @@ describe('productoEliminar', () => {
     const result = productoDecStock({ productos, productoId: 'X' });
     expect(result.length).toBe(3);
     expect(result).toEqual(productos);
+  });
+});
+
+describe('productosFiltrar', () => {
+  it('Filtra los por texto case-insensitive', () => {
+    const filter = { searchText: 'to b' };
+    const result = productosFiltrar({ productos, filter });
+    expect(result.length).toBe(1);
+    expect(result).toEqual([
+      productoB,
+    ]);
+  });
+  it('Filtra solo los que tienen stock', () => {
+    const filter = { enStock: true };
+    const result = productosFiltrar({ productos, filter });
+    expect(result.length).toBe(2);
+    expect(result).toEqual([
+      productoA,
+      productoB,
+    ]);
+  });
+  it('Filtra con opciones combinadas', () => {
+    const filtro = { searchText: 'to b', enStock: true };
+    const result = productosFiltrar({ productos, filtro });
+    expect(result.length).toBe(1);
+    expect(result).toEqual([
+      productoB,
+    ]);
   });
 });

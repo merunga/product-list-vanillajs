@@ -1,4 +1,16 @@
-const data = JSON.parse(localStorage.getItem('data') || '{ "productos": [] }');
+export const defaultFilter = {
+  searchText: '',
+  enStock: false,
+};
+
+const defaultData = {
+  filter: defaultFilter,
+  productos: [],
+};
+
+const lsData = localStorage.getItem('data');
+
+const data = lsData ? JSON.parse(lsData) : defaultData;
 
 export default {
   get(field) {

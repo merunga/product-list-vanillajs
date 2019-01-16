@@ -1,25 +1,31 @@
 import NewProductForm from './ui/NewProductForm.js';
 import ProductList from './ui/ProductList.js';
-import store from './store.js';
+import store, { defaultFilter } from './store.js';
 import {
-  productoCrear, productoIncStock, productoDecStock, productoEliminar,
+  productoCrear, productoIncStock, productoDecStock, productoEliminar, productosFiltrar,
 } from './controller.js';
 
 export const renderUI = () => {
   const productos = store.get('productos');
+  const filter = store.get('filter');
+  const filtrados = productosFiltrar({ productos, filter });
+
   const root = document.getElementById('root');
   root.innerHTML = '';
   const form = NewProductForm();
-  const list = ProductList({ productos });
+  const list = ProductList({ filter, productos: filtrados });
   root.appendChild(form);
   root.appendChild(list);
 };
 
 export const renderList = () => {
   const productos = store.get('productos');
+  const filter = store.get('filter');
+  const filtrados = productosFiltrar({ productos, filter });
+
   const root = document.getElementById('root');
   const oldEl = root.querySelector('#productos-list');
-  const newEl = ProductList({ productos });
+  const newEl = ProductList({ filter, productos: filtrados });
   root.replaceChild(newEl, oldEl);
 };
 
@@ -37,6 +43,7 @@ export const productoCrearOnSubmit = (evt) => {
   const productos = store.get('productos');
   const result = productoCrear({ productos, producto });
   store.set('productos', result);
+  store.set('filter', defaultFilter);
   renderUI();
 };
 
@@ -58,4 +65,22 @@ export const productoDecStockOnClick = (evt) => {
 
 export const productoEliminarOnClick = (evt) => {
   productoActionOnClick(evt, productoEliminar);
+};
+
+export const productosFilterOnChange = (evt) => {
+  const searchText = evt.target.value.trim();
+  const filter = store.get('filter');
+  filter.searchText = searchText;
+  store.set('filter', filter);
+  if (evt.keyCode === 13) {
+    renderList();
+  }
+};
+
+export const productosFilterOnCheck = (evt) => {
+  const enStock = evt.target.checked;
+  const filter = store.get('filter');
+  filter.enStock = enStock;
+  store.set('filter', filter);
+  renderList();
 };

@@ -1,5 +1,9 @@
 import {
-  productoIncStockOnClick, productoDecStockOnClick, productoEliminarOnClick,
+  productoIncStockOnClick,
+  productoDecStockOnClick,
+  productoEliminarOnClick,
+  productosFilterOnChange,
+  productosFilterOnCheck,
 } from '../view-controller.js';
 
 const ProductRow = ({ producto }) => (`
@@ -15,9 +19,14 @@ const ProductRow = ({ producto }) => (`
   </tr>
   `);
 
-export default ({ productos }) => {
+export default ({ filter, productos }) => {
   const htmlContent = `
 <h3>Productos</h3>
+<div id="productos-search-form">
+  <input type="text" placeholder="Buscar..." value="${filter.searchText}">
+  <br />
+  <input type="checkbox" ${filter.enStock ? 'checked' : ''}> Sólo productos en stock
+</div>
 <table>
   <thead>
     <tr>
@@ -35,6 +44,15 @@ export default ({ productos }) => {
   const divElem = document.createElement('div');
   divElem.setAttribute('id', 'productos-list');
   divElem.innerHTML = htmlContent;
+
+  divElem
+    .querySelector('#productos-search-form [type="text"]')
+    .addEventListener('keyup', productosFilterOnChange);
+
+  divElem
+    .querySelector('#productos-search-form [type="checkbox"]')
+    .addEventListener('change', productosFilterOnCheck);
+
   productos.forEach((p) => {
     divElem
       .querySelector(`[data-id="${p.id}"] .btn-inc`)
