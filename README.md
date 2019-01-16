@@ -1,5 +1,7 @@
 # Pasos de la demo
 
+[demo](https://merunga.github.io/product-list-vanillajs/)
+
 - mostrar el producto terminado
 - extraer historias de usuario 
 - comenzar con el boilerplate listo en codesandbox

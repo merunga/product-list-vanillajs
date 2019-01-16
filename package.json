@@ -6,7 +6,8 @@
     "start": "serve src/",
     "lint": "eslint .",
     "build": "babel src -d lib",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "deploy": "gh-pages -d src"
   },
   "author": "merunga",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.3",
     "firebase-mock": "^2.2.10",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.13.1",
     "serve": "^10.1.1"
