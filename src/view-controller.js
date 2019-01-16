@@ -1,5 +1,5 @@
-import NewProductForm from './components/NewProductForm.js';
-import ProductList from './components/ProductList.js';
+import NewProductForm from './ui/NewProductForm.js';
+import ProductList from './ui/ProductList.js';
 import store from './store.js';
 import {
   productoCrear, productoIncStock, productoDecStock, productoEliminar,
@@ -18,7 +18,7 @@ export const renderUI = () => {
 export const renderList = () => {
   const productos = store.get('productos');
   const root = document.getElementById('root');
-  const oldEl = root.querySelector('#product-list');
+  const oldEl = root.querySelector('#productos-list');
   const newEl = ProductList({ productos });
   root.replaceChild(newEl, oldEl);
 };
@@ -26,12 +26,12 @@ export const renderList = () => {
 export const productoCrearOnSubmit = (evt) => {
   evt.preventDefault();
   const formElem = evt.target;
-  const name = formElem.querySelector('#new-product-name').value;
-  const price = parseFloat(formElem.querySelector('#new-product-price').value);
-  const stock = parseInt(formElem.querySelector('#new-product-stock').value, 10);
+  const nombre = formElem.querySelector('#producto-nuevo-nombre').value;
+  const precio = parseFloat(formElem.querySelector('#producto-nuevo-precio').value);
+  const stock = parseInt(formElem.querySelector('#producto-nuevo-stock').value, 10);
   const producto = {
-    name,
-    price,
+    nombre,
+    precio,
     stock,
   };
   const productos = store.get('productos');
@@ -42,7 +42,7 @@ export const productoCrearOnSubmit = (evt) => {
 
 const productoActionOnClick = (evt, action) => {
   const productos = store.get('productos');
-  const productoId = evt.target.closest('.product').dataset.id;
+  const productoId = evt.target.closest('.producto').dataset.id;
   const result = action({ productos, productoId });
   store.set('productos', result);
   renderList();

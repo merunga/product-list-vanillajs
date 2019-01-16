@@ -3,9 +3,9 @@ import {
 } from '../view-controller.js';
 
 const ProductRow = ({ producto }) => (`
-  <tr data-id="${producto.id}" class="product ${producto.stock === 0 ? 'no-stock' : ''}">
-    <td>${producto.name}</td>
-    <td class="price">${producto.price.toFixed(2)}</td>
+  <tr data-id="${producto.id}" class="producto ${producto.stock === 0 ? 'no-stock' : ''}">
+    <td>${producto.nombre}</td>
+    <td class="precio">${producto.precio.toFixed(2)}</td>
     <td class="stock">${producto.stock}</td>
     <td>
       <button class="btn-inc" title="inc stock">+</button>
@@ -33,7 +33,7 @@ export default ({ productos }) => {
 </table>
   `;
   const divElem = document.createElement('div');
-  divElem.setAttribute('id', 'product-list');
+  divElem.setAttribute('id', 'productos-list');
   divElem.innerHTML = htmlContent;
   productos.forEach((p) => {
     divElem
