@@ -35,11 +35,11 @@ h3 {
   width: 100%;
 }
 
-#product-search-form {
+#productos-search-form {
   margin-bottom: 10px;
 }
 
-#product-search-form input[type=text] {
+#productos-search-form input[type=text] {
   width: 90%;
 }
 
