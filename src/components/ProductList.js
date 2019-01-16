@@ -1,6 +1,6 @@
-import store from '../store.js';
-import { productoIncStock, productoDecStock, productoEliminar } from '../controller.js';
-import { renderUI } from '../view-controller.js';
+import {
+  productoIncStockOnClick, productoDecStockOnClick, productoEliminarOnClick,
+} from '../view-controller.js';
 
 const ProductRow = ({ producto }) => (`
   <tr data-id="${producto.id}" class="product ${producto.stock === 0 ? 'no-stock' : ''}">
@@ -36,26 +36,15 @@ export default ({ productos }) => {
   divElem.setAttribute('id', 'product-list');
   divElem.innerHTML = htmlContent;
   productos.forEach((p) => {
-    const btnInc = divElem.querySelector(`[data-id="${p.id}"] .btn-inc`);
-    btnInc.addEventListener('click', () => {
-      const result = productoIncStock({ productos, productoId: p.id });
-      store.set('productos', result);
-      renderUI();
-    });
-
-    const btnDec = divElem.querySelector(`[data-id="${p.id}"] .btn-dec`);
-    btnDec.addEventListener('click', () => {
-      const result = productoDecStock({ productos, productoId: p.id });
-      store.set('productos', result);
-      renderUI();
-    });
-
-    const btnEliminar = divElem.querySelector(`[data-id="${p.id}"] .btn-eliminar`);
-    btnEliminar.addEventListener('click', () => {
-      const result = productoEliminar({ productos, productoId: p.id });
-      store.set('productos', result);
-      renderUI();
-    });
+    divElem
+      .querySelector(`[data-id="${p.id}"] .btn-inc`)
+      .addEventListener('click', productoIncStockOnClick);
+    divElem
+      .querySelector(`[data-id="${p.id}"] .btn-dec`)
+      .addEventListener('click', productoDecStockOnClick);
+    divElem
+      .querySelector(`[data-id="${p.id}"] .btn-eliminar`)
+      .addEventListener('click', productoEliminarOnClick);
   });
   return divElem;
 };

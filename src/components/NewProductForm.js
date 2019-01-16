@@ -1,6 +1,4 @@
-import store from '../store.js';
-import { productoCrear } from '../controller.js';
-import { renderUI } from '../view-controller.js';
+import { productoCrearOnSubmit } from '../view-controller.js';
 
 export default () => {
   const htmlContent = `
@@ -18,20 +16,6 @@ export default () => {
   const formElem = document.createElement('form');
   formElem.setAttribute('id', 'new-product-form');
   formElem.innerHTML = htmlContent;
-  formElem.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    const name = formElem.querySelector('#new-product-name').value;
-    const price = parseFloat(formElem.querySelector('#new-product-price').value);
-    const stock = parseInt(formElem.querySelector('#new-product-stock').value, 10);
-    const producto = {
-      name,
-      price,
-      stock,
-    };
-    const productos = store.get('productos');
-    const result = productoCrear({ productos, producto });
-    store.set('productos', result);
-    renderUI();
-  });
+  formElem.addEventListener('submit', productoCrearOnSubmit);
   return formElem;
 };
