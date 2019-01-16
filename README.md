@@ -20,7 +20,7 @@
 
 ## Vista
 - Comenzar con el mock estatico ya listo, tanto html como css
-- Extraerlos a 2 archivos, uno para form y otro para lista y crear `view-controller` e `index` para hacer el `renderUI` on window.load
+- Extraerlos a 2 archivos, uno para form y otro para lista y crear `view-controller`para hacer el `renderUI` on `window.load`
 - Crear un array estatico de productos y generar dinamicamente la lista
 
 ## Modelo
