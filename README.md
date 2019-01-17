@@ -7,6 +7,7 @@
 - Instalar deps: `yarn`
 - Servidor de desarrollo: `yarn start`
 - Tests: `yarn test`
+- Linting: `yarn lint`
 - Deploy a gh-pages: `yarn deploy`
 
 ## Pasos de la demo
