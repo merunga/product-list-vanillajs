@@ -1,4 +1,4 @@
-# Contenido de pill sobre arquitectura y diseño de aplicaciones
+# Contenido de pill sobre arquitectura y diseño de aplicaciones con vanillajs
 
 [Demo](https://merunga.github.io/product-list-vanillajs/)
 
