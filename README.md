@@ -4,10 +4,10 @@
 
 ## Getting started
 
-- Instalar deps con `yarn`
-- Servidor de desarrollo con `yarn start`
-- Tests con `yarn test`
-- Deploy a gh-pages con `yarn deploy`
+- Instalar deps: `yarn`
+- Servidor de desarrollo: `yarn start`
+- Tests: `yarn test`
+- Deploy a gh-pages: `yarn deploy`
 
 ## Pasos de la demo
 - mostrar el producto terminado
