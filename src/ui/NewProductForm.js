@@ -1,4 +1,4 @@
-import { productoCrearOnSubmit } from '../view-controller.js';
+import { productoCrearOnSubmit } from '../lib/view-controller.js';
 
 export default () => {
   const htmlContent = `

@@ -1,5 +1,5 @@
-import NewProductForm from './ui/NewProductForm.js';
-import ProductList from './ui/ProductList.js';
+import NewProductForm from '../ui/NewProductForm.js';
+import ProductList from '../ui/ProductList.js';
 import store, { defaultFilter } from './store.js';
 import {
   productoCrear, productoIncStock, productoDecStock, productoEliminar, productosFiltrar,

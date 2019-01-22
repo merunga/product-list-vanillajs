@@ -4,7 +4,7 @@ import {
   productoDecStock,
   productoEliminar,
   productosFiltrar,
-} from '../src/controller';
+} from '../src/lib/controller';
 
 jest.mock('../src/utils.js');
 
