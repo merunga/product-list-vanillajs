@@ -4,7 +4,7 @@ import {
   productoEliminarOnClick,
   productosFilterOnChange,
   productosFilterOnCheck,
-} from '../view-controller.js';
+} from '../lib/view-controller.js';
 
 const ProductRow = ({ producto }) => (`
   <tr data-id="${producto.id}" class="producto ${producto.stock === 0 ? 'no-stock' : ''}">
