@@ -6,7 +6,7 @@ import {
   productosFiltrar,
 } from '../src/lib/controller';
 
-jest.mock('../src/utils.js');
+jest.mock('../src/lib/utils.js');
 
 const productoA = {
   id: 'A',
@@ -121,8 +121,8 @@ describe('productosFiltrar', () => {
     ]);
   });
   it('Filtra con opciones combinadas', () => {
-    const filtro = { searchText: 'to b', enStock: true };
-    const result = productosFiltrar({ productos, filtro });
+    const filter = { searchText: 'to b', enStock: true };
+    const result = productosFiltrar({ productos, filter });
     expect(result.length).toBe(1);
     expect(result).toEqual([
       productoB,
