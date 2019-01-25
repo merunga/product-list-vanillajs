@@ -111,6 +111,12 @@ describe('productosFiltrar', () => {
       productoB,
     ]);
   });
+  it('Filtra los por un caracter', () => { // issue #1
+    const filter = { searchText: 'P' };
+    const result = productosFiltrar({ productos, filter });
+    expect(result.length).toBe(3);
+    expect(result).toEqual(productos);
+  });
   it('Filtra solo los que tienen stock', () => {
     const filter = { enStock: true };
     const result = productosFiltrar({ productos, filter });
