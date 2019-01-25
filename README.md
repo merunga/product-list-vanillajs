@@ -4,13 +4,14 @@
 
 ## Getting started
 
-- Instalar deps: `yarn`
-- Servidor de desarrollo: `yarn start`
-- Tests: `yarn test`
-- Linting: `yarn lint`
-- Deploy a gh-pages: `yarn deploy`
+- Instalar deps: `yarn` o `npm install`
+- Servidor de desarrollo: `yarn start` o `npm start`
+- Tests: `yarn test` o `npm test`
+- Linting: `yarn lint` o `npm run lint`
+- Deploy a gh-pages: `yarn deploy` o `npm run deploy`
 
 ## Pasos de la demo
+
 - mostrar el producto terminado
 - extraer historias de usuario 
 - comenzar con el boilerplate listo en codesandbox
